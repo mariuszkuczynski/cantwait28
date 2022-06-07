@@ -38,7 +38,7 @@ class _AddPageState extends State<AddPage> {
           builder: (context, state) {
             return Scaffold(
               appBar: AppBar(
-                title: const Text('Add new upcoming title'),
+                title: const Text('Dodaj nowe wydarzenie'),
                 actions: [
                   IconButton(
                     onPressed: _imageURL == null ||
@@ -108,8 +108,8 @@ class _AddPageBody extends StatelessWidget {
           onChanged: onTitleChanged,
           decoration: const InputDecoration(
             border: OutlineInputBorder(),
-            hintText: 'Matrix 5',
-            label: Text('Title'),
+            hintText: 'Szuter Mas...',
+            label: Text('Tytuł'),
           ),
         ),
         const SizedBox(height: 20),
@@ -134,7 +134,7 @@ class _AddPageBody extends StatelessWidget {
             );
             onDateChanged(selectedDate);
           },
-          child: Text(selectedDateFormatted ?? 'Choose release date'),
+          child: Text(selectedDateFormatted ?? 'Wybierz datę imprezy'),
         ),
       ],
     );
