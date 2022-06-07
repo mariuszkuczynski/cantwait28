@@ -1,6 +1,7 @@
 import 'package:cantwait28/features/add/page/add_page.dart';
 import 'package:cantwait28/features/home/cubit/home_cubit.dart';
 import 'package:cantwait28/models/item_model.dart';
+import 'package:cantwait28/repositories/items_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -39,7 +40,7 @@ class _HomePageBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => HomeCubit()..start(),
+      create: (context) => HomeCubit(ItemsRepository())..start(),
       child: BlocBuilder<HomeCubit, HomeState>(
         builder: (context, state) {
           final itemModels = state.items;
@@ -147,20 +148,20 @@ class _ListViewItem extends StatelessWidget {
                 Container(
                   decoration: const BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Colors.white70,
+                    color: Colors.grey,
                   ),
                   margin: const EdgeInsets.all(20),
                   padding: const EdgeInsets.all(20),
                   child: Column(
-                    children: const [
+                    children: [const Text('Start za'),
                       Text(
-                        '0',
-                        style: TextStyle(
+                        itemModel.daysLeft(),
+                        style: const TextStyle(
                           fontSize: 20.0,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      Text('days left'),
+                      const Text('dni'),
                     ],
                   ),
                 ),
